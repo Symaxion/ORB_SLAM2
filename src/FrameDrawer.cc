@@ -25,6 +25,7 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include<mutex>
+#include<unistd.h>
 
 namespace ORB_SLAM2
 {
@@ -84,7 +85,7 @@ cv::Mat FrameDrawer::DrawFrame()
                 cv::line(im,vIniKeys[i].pt,vCurrentKeys[vMatches[i]].pt,
                         cv::Scalar(0,255,0));
             }
-        }        
+        }
     }
     else if(state==Tracking::OK) //TRACKING
     {

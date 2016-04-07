@@ -20,9 +20,11 @@
 
 
 #include<iostream>
+#include<iomanip>
 #include<algorithm>
 #include<fstream>
 #include<chrono>
+#include<unistd.h>
 
 #include<opencv2/core/core.hpp>
 
@@ -83,7 +85,7 @@ int main(int argc, char **argv)
 #endif
 
         // Pass the images to the SLAM system
-        SLAM.TrackStereo(imLeft,imRight,tframe);        
+        SLAM.TrackStereo(imLeft,imRight,tframe);
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
