@@ -33,8 +33,9 @@ find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
 include_directories(
-${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/include
+${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2
+${PROJECT_SOURCE_DIR}/Thirdparty/g2o
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
 )
@@ -74,6 +75,13 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.a
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include/${PROJECT_NAME}
         FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY Thirdparty/DBoW2/DBoW2/ DESTINATION include/DBoW2
+        FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY Thirdparty/DBoW2/DUtils/ DESTINATION include/DUtils
+        FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY Thirdparty/g2o/g2o/ DESTINATION include/g2o
+        FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+install(FILES Thirdparty/g2o/g2o-config.h DESTINATION include)
 
 # Build examples
 

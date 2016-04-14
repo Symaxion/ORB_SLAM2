@@ -29,6 +29,7 @@
 #include"Converter.h"
 #include"Map.h"
 #include"Initializer.h"
+#include"System.h"
 
 #include"Optimizer.h"
 #include"PnPsolver.h"
@@ -224,8 +225,10 @@ cv::Mat Tracking::GrabImageRGBD(const cv::Mat &imRGB,const cv::Mat &imD, const d
             cvtColor(mImGray,mImGray,CV_BGRA2GRAY);
     }
 
-    if(mDepthMapFactor!=1 || imDepth.type()!=CV_32F);
-    imDepth.convertTo(imDepth,CV_32F,mDepthMapFactor);
+    if(mDepthMapFactor!=1 || imDepth.type()!=CV_32F)
+    {
+        imDepth.convertTo(imDepth,CV_32F,mDepthMapFactor);
+    }
 
     mCurrentFrame = Frame(mImGray,imDepth,timestamp,mpORBextractorLeft,mpORBVocabulary,mK,mDistCoef,mbf,mThDepth);
 

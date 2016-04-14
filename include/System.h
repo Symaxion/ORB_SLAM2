@@ -77,6 +77,9 @@ public:
     // Returns the camera pose (empty if tracking fails).
     cv::Mat TrackMonocular(const cv::Mat &im, const double &timestamp);
 
+    // Get the tracker's state
+    Tracking::eTrackingState TrackingState() const;
+
     // This stops local mapping thread (map building) and performs only camera tracking.
     void ActivateLocalizationMode();
     // This resumes local mapping thread and performs SLAM again.

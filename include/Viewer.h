@@ -25,7 +25,6 @@
 #include "FrameDrawer.h"
 #include "MapDrawer.h"
 #include "Tracking.h"
-#include "System.h"
 
 #include <mutex>
 
@@ -87,5 +86,5 @@ private:
 
 
 #endif // VIEWER_H
-	
+
 
